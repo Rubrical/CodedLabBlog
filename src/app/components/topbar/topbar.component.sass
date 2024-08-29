@@ -1,0 +1,68 @@
+body
+  display: flex
+
+.top-bar
+  ::ng-deep
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 7rem 0rem 7rem 0rem
+    width: 100%
+    gap: 48px
+    background-color: var(--dark-general)
+    border-bottom: 18px
+    border-bottom-color: var(--dark-general)
+    border-style: solid
+
+.red-item
+  color: var(--red-main)
+
+.top-bar-title
+  display: flex
+  justify-items: center
+
+  h1
+    font-family: var(--font-space)
+    color: var(--white)
+    font-style: normal
+    font-weight: 500
+    font-size: 40px
+    text-align: center
+    gap: 12px
+    margin: 12px
+
+    span
+      color: var(--red-main)
+
+.search-bar
+  display: flex
+  gap: 12px
+  padding: 12px 20px
+  background-color: var(--dark-bar)
+  border: 2px solid var(--border-dark)
+  border-radius: 8px
+  transition: border 0.3s ease
+  width: 75%
+
+  &:focus-within
+    border: 2px solid var(--red-main)
+
+  @media screen and (min-width: 1216px)
+    max-width: 1216px
+    margin: 0 auto
+
+  @media screen and ( min-width: 768px )
+    gap: 15px
+
+  input
+    width: 100%
+    font-family: var(--font-inter)
+    font-weight: 500
+    font-size: 1rem
+    color: var(--gray)
+    background-color: transparent
+    border: none
+    outline: none
+    min-width: none
+
