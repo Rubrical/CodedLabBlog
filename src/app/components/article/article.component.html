@@ -1,0 +1,27 @@
+<article>
+
+  <mat-card >
+
+    <mat-card-header>
+      <mat-card-subtitle class="date-article">
+        Exemplo data
+          <img
+            [src]="currentIcon"
+            (mouseover)="toggleIcon(true)"
+            (mouseout)="toggleIcon(false)"
+            (click)="toggleActive()"
+            alt="Icon"
+          />
+      </mat-card-subtitle>
+      <mat-card-title class="article-title">Exemplo Título</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <span class="article-content">
+        Exemplo contéudo
+      </span>
+    </mat-card-content>
+
+  </mat-card>
+
+</article>
