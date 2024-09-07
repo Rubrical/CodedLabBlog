@@ -4,7 +4,9 @@
 
     <mat-card-header>
       <mat-card-subtitle class="date-article">
-        {{article.date}}
+        <span>
+          {{article.date}}
+        </span>
           <img
             [src]="currentIcon"
             (mouseover)="toggleIcon(true)"
