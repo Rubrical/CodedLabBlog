@@ -1,8 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { ArticleWithState } from '../../shared/models/article-with-state';
 import { ArticleService } from '../../shared/services/article.service';
-import { Article } from '../../shared/models/article';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-article',
@@ -19,27 +19,32 @@ export class ArticleComponent implements OnInit {
   activeIcon = "assets/icon-heart-active.svg";
   currentIcon = this.inactiveIcon;
   isCliked = false;
-  articles!: Article[];
+  articles!: ArticleWithState[];
 
   constructor(private service: ArticleService) { }
 
   ngOnInit(): void {
     this.service.getArticles().subscribe({
       next: response => {
-        this.articles = response;
+        this.articles = response.map(article => ({
+          ...article,
+          isCliked: false,
+          currentIcon: this.inactiveIcon
+        }))
+
       }
     })
   }
 
-  toggleIcon(isHovering: boolean) {
-    if (!this.isCliked) {
-      this.currentIcon = isHovering ? this.activeIcon : this.inactiveIcon;
+  toggleIcon(article: ArticleWithState, isHovering: boolean) {
+    if (!article.isCliked) {
+      article.currentIcon = isHovering ? this.activeIcon : this.inactiveIcon;
     }
   }
 
-  toggleActive() {
-    this.isCliked = !this.isCliked;
-    this.currentIcon = this.isCliked ? this.activeIcon : this.inactiveIcon;
+  toggleActive(article: ArticleWithState) {
+    article.isCliked = !article.isCliked;
+    article.currentIcon = article.isCliked ? this.activeIcon : this.inactiveIcon;
   }
 
 }

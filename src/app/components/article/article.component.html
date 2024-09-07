@@ -8,10 +8,10 @@
           {{article.date}}
         </span>
           <img
-            [src]="currentIcon"
-            (mouseover)="toggleIcon(true)"
-            (mouseout)="toggleIcon(false)"
-            (click)="toggleActive()"
+            [src]="article.currentIcon"
+            (mouseover)="toggleIcon(article, true)"
+            (mouseout)="toggleIcon(article, false)"
+            (click)="toggleActive(article)"
             alt="Icon"
           />
       </mat-card-subtitle>
