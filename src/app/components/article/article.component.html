@@ -1,10 +1,10 @@
 <article>
 
-  <mat-card >
+  <mat-card *ngFor="let article of articles">
 
     <mat-card-header>
       <mat-card-subtitle class="date-article">
-        Exemplo data
+        {{article.date}}
           <img
             [src]="currentIcon"
             (mouseover)="toggleIcon(true)"
@@ -13,12 +13,12 @@
             alt="Icon"
           />
       </mat-card-subtitle>
-      <mat-card-title class="article-title">Exemplo Título</mat-card-title>
+      <mat-card-title class="article-title">{{article.title}}</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
       <span class="article-content">
-        Exemplo contéudo
+        {{article.resume}}
       </span>
     </mat-card-content>
 
